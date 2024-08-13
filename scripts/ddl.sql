@@ -6,7 +6,7 @@ CREATE TABLE `lep_permission_table` (
                                         `extra` text COMMENT '扩展字段',
                                         `is_deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0-未删除; 1-已删除',
                                         `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-                                        `updated_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+                                        `updated_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
                                             PRIMARY KEY (`id`),
                                         KEY `idx_key` (`permission_key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20056 DEFAULT CHARSET=utf8mb4 COMMENT='系统权限'
@@ -24,7 +24,7 @@ CREATE TABLE `lep_role_table` (
                                   KEY `idx_key` (`role_key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20056 DEFAULT CHARSET=utf8mb4 COMMENT='角色表'
 
-CREATE TABLE `lep_role_table` (
+CREATE TABLE `lep_role_permission_table` (
                                   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键id',
                                   `role_key`  varchar(255) NOT NULL COMMENT '角色key',
                                   `permission_key`  varchar(255) NOT NULL COMMENT '权限key',
