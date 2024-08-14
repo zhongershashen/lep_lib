@@ -1,4 +1,4 @@
-module bupt/lep_lib
+module github.com/zhongershashen/lep_lib
 
 go 1.20
 
