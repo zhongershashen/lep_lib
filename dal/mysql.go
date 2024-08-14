@@ -1,9 +1,10 @@
 package dal
 
 import (
-	"bupt/lep_lib/constdef"
 	"fmt"
 	"sync"
+
+	"github.com/zhongershashen/lep_lib/constdef"
 
 	"gorm.io/driver/mysql"
 
