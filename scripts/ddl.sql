@@ -75,25 +75,28 @@ CREATE TABLE `lep_material_table`
 
 CREATE TABLE `lep_audit_table`
 (
-    `id`           bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '主键id',
-    `created_time` timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `updated_time` timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-    `is_deleted`   tinyint      NOT NULL DEFAULT '0' COMMENT '0-未删除，1-已删除',
-    `audit_type`   int          NOT NULL DEFAULT '0' COMMENT '审核类型，业务自定义',
-    `applicant`    varchar(64)  NOT NULL DEFAULT '' COMMENT '申请人',
-    `target_id`    bigint unsigned NOT NULL DEFAULT '0' COMMENT '审核目标ID',
-    `apply_info`   text COMMENT '附加申请信息',
-    `audit_status` tinyint      NOT NULL DEFAULT '0' COMMENT '审核状态：1-待审核，2-审核通过，3-审核驳回',
-    `biz_status`   int          NOT NULL DEFAULT '0' COMMENT '业务自定义status',
-    `auditor`      varchar(64)  NOT NULL DEFAULT '' COMMENT '审核人',
-    `reason`       varchar(512) NOT NULL DEFAULT '' COMMENT '驳回原因',
-    `apply_time`   timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '申请时间',
-    `audit_time`   timestamp NULL DEFAULT NULL COMMENT '审核时间',
-    `extra`        text COMMENT '扩展信息',
-    `is_test`      tinyint unsigned NOT NULL DEFAULT '0' COMMENT '是否测试数据，1是，0不是',
+    `id`                bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '主键id',
+    `created_time`      timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `updated_time`      timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+    `is_deleted`        tinyint      NOT NULL DEFAULT '0' COMMENT '0-未删除，1-已删除',
+    `audit_type`        int          NOT NULL DEFAULT '0' COMMENT '审核类型，业务自定义',
+    `apply_user_name`   varchar(64)  NOT NULL DEFAULT '' COMMENT '申请人',
+    `apply_user_id`     bigint(20) NOT NULL COMMENT '用户id',
+    `target_id`         bigint unsigned NOT NULL DEFAULT '0' COMMENT '审核目标ID',
+    `target_type`       tinyint(4) NOT NULL COMMENT '审核资料类型',
+    `apply_info`        text COMMENT '附加申请信息',
+    `audit_status`      tinyint      NOT NULL DEFAULT '0' COMMENT '审核状态：1-待审核，2-审核通过，3-审核驳回',
+    `biz_status`        int          NOT NULL DEFAULT '0' COMMENT '业务自定义status',
+    `auditor_user_name` varchar(64)  NOT NULL DEFAULT '' COMMENT '审核人',
+    `auditor_user_id`   bigint(20) NOT NULL DEFAULT '' COMMENT '审核人id',
+    `reason`            varchar(512) NOT NULL DEFAULT '' COMMENT '驳回原因',
+    `apply_time`        timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '申请时间',
+    `audit_time`        timestamp NULL DEFAULT NULL COMMENT '审核时间',
+    `extra`             text COMMENT '扩展信息',
+    `is_test`           tinyint unsigned NOT NULL DEFAULT '0' COMMENT '是否测试数据，1是，0不是',
     PRIMARY KEY (`id`),
-    KEY            `idx_third` (`third_id`),
-    KEY            `idx_target` (`target_id`)
+    KEY                 `idx_third` (`third_id`),
+    KEY                 `idx_target` (`target_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20768 DEFAULT CHARSET=utf8mb3 COMMENT='审核信息表'
 
 CREATE TABLE `lep_product_table`
