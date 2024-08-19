@@ -17,11 +17,11 @@ const (
 	TargetType_File  TargetType = 4
 )
 
-// 1-待审核，2-审核通过，3-审核驳回
+// 0-待审核，1-审核通过，2-审核驳回
 type AuditStatus int32
 
 const (
-	AuditStatus_Pending AuditStatus = 1
-	AuditStatus_Pass    AuditStatus = 2
-	AuditStatus_Fail    AuditStatus = 3
+	AuditStatus_Pending AuditStatus = 0
+	AuditStatus_Pass    AuditStatus = 1
+	AuditStatus_Fail    AuditStatus = 2
 )
